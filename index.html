@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>This is for you 💖</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Pacifico', cursive;
+      background: linear-gradient(135deg, #ffb6c1, #ffa07a);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow-x: hidden;
+    }
+
+    .container {
+      background: #fff8dc;
+      padding: 3rem;
+      border-radius: 30px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      max-width: 600px;
+      width: 90%;
+    }
+
+    .title {
+      font-size: 2.5rem;
+      color: #ff69b4;
+      margin-bottom: 1rem;
+    }
+
+    .message {
+      font-size: 1.2rem;
+      color: #555;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    .btn {
+      background: #ff69b4;
+      color: white;
+      border: none;
+      padding: 0.75rem 2rem;
+      font-size: 1rem;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #ff1493;
+    }
+
+    .confetti {
+      font-size: 2rem;
+      margin-top: 2rem;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .heart {
+      position: fixed;
+      font-size: 1.5rem;
+      animation: floatHearts 8s linear infinite;
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    .heart:nth-child(1) { top: 80%; left: 10%; animation-delay: 0s; }
+    .heart:nth-child(2) { top: 85%; left: 25%; animation-delay: 2s; }
+    .heart:nth-child(3) { top: 90%; left: 45%; animation-delay: 4s; }
+    .heart:nth-child(4) { top: 88%; left: 65%; animation-delay: 1s; }
+    .heart:nth-child(5) { top: 92%; left: 80%; animation-delay: 3s; }
+
+    @keyframes floatHearts {
+      0% { transform: translateY(0) scale(1); opacity: 0.8; }
+      50% { opacity: 1; }
+      100% { transform: translateY(-100vh) scale(1.5); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Hearts -->
+  <span class="heart">💖</span>
+  <span class="heart">💗</span>
+  <span class="heart">💘</span>
+  <span class="heart">💕</span>
+  <span class="heart">❤️</span>
+
+  <!-- Initial View -->
+  <div id="initial" class="container">
+    <div class="title">This is for you 💝</div>
+    <div class="message">
+      Just a small gesture to show how special you are! <br />
+      Hope your day is filled with love, laughter, and surprises 💫
+    </div>
+    <button class="btn" onclick="showWishes()">Open Wishes 🎉</button>
+    <div class="confetti">🎈🎉✨</div>
+  </div>
+
+  <!-- Wishes View -->
+  <div id="wishes" class="container hidden">
+    <h1 class="title">🎉 Happy Birthday,<br /><span class="name-line">Neha! 🎂</span></h1>
+    <p class="message">
+      Today is a special day because someone amazing was born.<br><br>
+      You bring happiness just by being you.<br>
+      Your smile, your kindness, the way you care —<br>
+      it all makes the world a better place.<br><br>
+      I hope your day is filled with laughter, love, and sweet moments.<br>
+      You deserve all the good things life has to offer.<br><br>
+      And maybe, just maybe...<br>
+      someone out there is smiling extra wide today,<br>
+      just thinking of you. 😊<br>
+                                  - Nitish
+    </p>
+    <div class="confetti">🎈🎁🎊🎉🎈🎁🎊🎉</div>
+  </div>
+
+  <!-- Audio -->
+  <audio id="birthdaySong" src="music.mp3" preload="auto" loop></audio>
+
+  <script>
+    function showWishes() {
+      const audio = document.getElementById('birthdaySong');
+      audio.play().catch(err => console.log("Autoplay blocked:", err));
+      document.getElementById('initial').classList.add('hidden');
+      document.getElementById('wishes').classList.remove('hidden');
+    }
+  </script>
+</body>
+</html>
